@@ -17,6 +17,7 @@
     "ui-router": "latest",
     "angular-resource": "latest",
     "angular-local-storage": "latest",
-    "ui-router-extras": "latest"
+    "ui-router-extras": "latest",
+    "bootstrap": "latest"
   }
 }

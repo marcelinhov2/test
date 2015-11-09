@@ -1,75 +1,54 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="pull-left">
-        <a href="#" class="btn btn-success">Novo Carro</a>
-      </div>
+  <section st-table="rowCollection" st-safe-src="safe_data">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="pull-left">
+          <a href="#" class="btn btn-success">Novo Carro</a>
+        </div>
 
-      <div class="pull-right">
-        <search></search>
+        <div class="pull-right col-md-3">
+          <div class="form-group">
+            <div class="input-group">
+              <input st-search class="form-control" placeholder="Pesquisar" type="text"/>
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-search"></span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-12">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
-            <th>Username</th>
-            <th>Username</th>
-            <th>Username</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-3 col-centered">
-      <pagination></pagination>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th st-sort="firstName">first name</th>
+              <th st-sort="lastName">last name</th>
+              <th st-sort="birthDate">birth date</th>
+              <th st-sort="balance">balance</th>
+              <th>email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="row in rowCollection">
+              <td>{{row.firstName | uppercase}}</td>
+              <td>{{row.lastName}}</td>
+              <td>{{row.birthDate | date}}</td>
+              <td>{{row.balance | currency}}</td>
+              <td><a ng-href="mailto:{{row.email}}">email</a></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5" class="text-center">
+                <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="5"></div>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
     </div>
   </div>
 </div>

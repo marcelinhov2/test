@@ -1,0 +1,25 @@
+{
+  "name": "ngSprntr",
+  "version": "2.0.0",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {},
+  "dependencies": {
+    "angular": "latest",
+    "lodash": "latest",
+    "ui-router": "latest",
+    "angular-resource": "latest",
+    "angular-local-storage": "latest",
+    "ui-router-extras": "latest"
+  },
+  "resolutions": {
+    "angular": "1.4.0"
+  }
+}

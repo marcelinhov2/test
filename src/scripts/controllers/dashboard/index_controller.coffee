@@ -9,6 +9,7 @@ class DashboardIndex extends Controller
     do @declare_template_methods
 
   declare_scope_vars: ->
+    @$scope.selected_cars = []
     @$scope.itemsByPage = 5
     
     @$scope.safe_data = [  
@@ -43,6 +44,9 @@ class DashboardIndex extends Controller
   declare_template_methods: ->
     @$scope.open_car = @open_car
     @$scope.open_image = @open_image
+    
+    @$scope.check_all = @check_all
+    @$scope.handle_selected_cars = @handle_selected_cars
 
   open_car: (car) =>
     @ngDialog.open({
@@ -60,3 +64,24 @@ class DashboardIndex extends Controller
         "<img src='#{path}' />"
       plain: true
     });
+
+  check_all: =>
+    @$scope.selected_cars = []
+
+    if @$scope.selected_all
+      @$scope.selected_all = true
+    else
+      @$scope.selected_all = false
+
+    angular.forEach @$scope.rowCollection, (item) =>
+      item.is_selected = @$scope.selected_all
+      @handle_selected_cars(item)
+
+  handle_selected_cars: (car, uncheck) =>
+    if uncheck
+      @$scope.selected_all = false
+
+    if car.is_selected
+      @$scope.selected_cars.push car.placa
+    else
+      @$scope.selected_cars = _.without(@$scope.selected_cars, car.placa)

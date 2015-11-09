@@ -129,6 +129,8 @@ class DashboardIndex extends Controller
     @$scope.rowCollection = angular.copy(@$scope.safe_data)
 
   declare_template_methods: ->
+    @$scope.delete_car = @delete_car
+
     @$scope.open_car = @open_car
     @$scope.open_image = @open_image
     
@@ -171,3 +173,10 @@ class DashboardIndex extends Controller
       @$scope.selected_cars = _.without(@$scope.selected_cars, car.id)
 
     @$scope.selected_cars = _.uniq(@$scope.selected_cars);
+
+  delete_car: =>
+    filtered = _.reject(@$scope.safe_data, (c) =>
+      @$scope.selected_cars.indexOf(c.id) != -1
+    )
+
+    console.log filtered

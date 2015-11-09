@@ -4,7 +4,7 @@
       <div class="col-md-12">
         <div class="pull-left">
           <a ng-click="open_car()" class="btn btn-success">Novo Carro</a>
-          <a ng-if="selected_cars.length > 0" class="btn btn-danger">Excluir carros selecionados</a>
+          <a ng-click="delete_car()" ng-if="selected_cars.length > 0" class="btn btn-danger">Excluir {{selected_cars.length}} carros selecionados</a>
         </div>
 
         <div class="pull-right col-md-3">

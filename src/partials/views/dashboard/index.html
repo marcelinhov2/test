@@ -42,6 +42,7 @@
               <td>
                 <a ng-if="car.imagem" ng-click="open_image(car.imagem); $event.stopPropagation();">Imagem
                 </a>
+                <span ng-if="!car.imagem">Sem imagem</span>
               </td>
               <td>{{car.combustivel}}</td>
               <td>{{car.valor}}</td>
@@ -49,7 +50,7 @@
           </tbody>
           <tfoot>
             <tr>
-              <td colspan="5" class="text-center">
+              <td colspan="7" class="text-center">
                 <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="5"></div>
               </td>
             </tr>

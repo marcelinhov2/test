@@ -1,6 +1,6 @@
 {
-  "name": "ngSprntr",
-  "version": "2.0.0",
+  "name": "test",
+  "version": "0.0.1",
   "license": "MIT",
   "private": true,
   "ignore": [
@@ -18,8 +18,5 @@
     "angular-resource": "latest",
     "angular-local-storage": "latest",
     "ui-router-extras": "latest"
-  },
-  "resolutions": {
-    "angular": "1.4.0"
   }
 }

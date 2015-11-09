@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="pull-left">
-          <a ng-click="open_modal()" class="btn btn-success">Novo Carro</a>
+          <a ng-click="open_car()" class="btn btn-success">Novo Carro</a>
         </div>
 
         <div class="pull-right col-md-3">
@@ -25,19 +25,26 @@
           <thead>
             <tr>
               <th st-sort="firstName">first name</th>
-              <th st-sort="lastName">last name</th>
-              <th st-sort="birthDate">birth date</th>
-              <th st-sort="balance">balance</th>
-              <th>email</th>
+              <th st-sort="lastName">Placa</th>
+              <th st-sort="birthDate">Modelo</th>
+              <th st-sort="balance">Marca</th>
+              <th st-sort="balance">Foto</th>
+              <th st-sort="balance">Combustível</th>
+              <th st-sort="balance">Valor</th>
             </tr>
           </thead>
           <tbody>
             <tr ng-repeat="row in rowCollection">
-              <td>{{row.firstName | uppercase}}</td>
-              <td>{{row.lastName}}</td>
-              <td>{{row.birthDate | date}}</td>
-              <td>{{row.balance | currency}}</td>
-              <td><a ng-href="mailto:{{row.email}}">email</a></td>
+              <td></td>
+              <td>{{row.placa}}</td>
+              <td>{{row.modelo}}</td>
+              <td>{{row.marca}}</td>
+              <td>
+                <a ng-if="row.imagem" ng-click="open_image(row.imagem)">Imagem
+                </a>
+              </td>
+              <td>{{row.combustivel}}</td>
+              <td>{{row.valor}}</td>
             </tr>
           </tbody>
           <tfoot>

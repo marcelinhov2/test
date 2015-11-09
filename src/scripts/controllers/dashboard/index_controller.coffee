@@ -12,118 +12,30 @@ class DashboardIndex extends Controller
   declare_scope_vars: ->
     @$scope.itemsByPage = 5
     
-    @$scope.safe_data = [
+    @$scope.safe_data = [  
       {
-        firstName: "firstName1"
-        lastName: "lastName1"
-        age: "age1"
-        email: "email1"
-        balance: "balance1"
+        "combustivel":"Flex",
+        "imagem":null,
+        "marca":"Volkswagem",
+        "modelo":"Gol",
+        "placa":"FFF­5498",
+        "valor":"20000"
       }
       {
-        firstName: "firstName2"
-        lastName: "lastName2"
-        age: "age2"
-        email: "email2"
-        balance: "balance2"
+        "combustivel":"Gasolina",
+        "imagem":null,
+        "marca":"Volkswagem",
+        "modelo":"Fox",
+        "placa":"FOX­4125",
+        "valor":"20000"
       }
       {
-        firstName: "firstName3"
-        lastName: "lastName3"
-        age: "age3"
-        email: "email3"
-        balance: "balance3"
-      }
-      {
-        firstName: "firstName4"
-        lastName: "lastName4"
-        age: "age4"
-        email: "email4"
-        balance: "balance4"
-      }
-      {
-        firstName: "firstName1"
-        lastName: "lastName1"
-        age: "age1"
-        email: "email1"
-        balance: "balance1"
-      }
-      {
-        firstName: "firstName2"
-        lastName: "lastName2"
-        age: "age2"
-        email: "email2"
-        balance: "balance2"
-      }
-      {
-        firstName: "firstName3"
-        lastName: "lastName3"
-        age: "age3"
-        email: "email3"
-        balance: "balance3"
-      }
-      {
-        firstName: "firstName4"
-        lastName: "lastName4"
-        age: "age4"
-        email: "email4"
-        balance: "balance4"
-      }
-      {
-        firstName: "firstName1"
-        lastName: "lastName1"
-        age: "age1"
-        email: "email1"
-        balance: "balance1"
-      }
-      {
-        firstName: "firstName2"
-        lastName: "lastName2"
-        age: "age2"
-        email: "email2"
-        balance: "balance2"
-      }
-      {
-        firstName: "firstName3"
-        lastName: "lastName3"
-        age: "age3"
-        email: "email3"
-        balance: "balance3"
-      }
-      {
-        firstName: "firstName4"
-        lastName: "lastName4"
-        age: "age4"
-        email: "email4"
-        balance: "balance4"
-      }
-      {
-        firstName: "firstName1"
-        lastName: "lastName1"
-        age: "age1"
-        email: "email1"
-        balance: "balance1"
-      }
-      {
-        firstName: "firstName2"
-        lastName: "lastName2"
-        age: "age2"
-        email: "email2"
-        balance: "balance2"
-      }
-      {
-        firstName: "firstName3"
-        lastName: "lastName3"
-        age: "age3"
-        email: "email3"
-        balance: "balance3"
-      }
-      {
-        firstName: "firstName4"
-        lastName: "lastName4"
-        age: "age4"
-        email: "email4"
-        balance: "balance4"
+        "combustivel":"Alcool",
+        "imagem":"http://placehold.it/350x150",
+        "marca":"Volkswagen",
+        "modelo":"Fusca",
+        "placa":"PAI­4121",
+        "valor":"20000"
       }
     ]
 
@@ -132,12 +44,13 @@ class DashboardIndex extends Controller
     console.log 'declare_scope_vars'
 
   declare_template_methods: ->
-    @$scope.open_modal = @open_modal
+    @$scope.open_car = @open_car
+    @$scope.open_image = @open_image
 
   set_listeners: ->
     console.log 'set_listeners'
 
-  open_modal: (car) =>
+  open_car: (car) =>
     @ngDialog.open({
       className: 'ngdialog-theme-default'
       template: "/partials/views/dashboard/modal.html"
@@ -146,29 +59,12 @@ class DashboardIndex extends Controller
       data: (car) ? car : null
     });
 
-# [  
-#    {  
-#       "combustivel":"Flex",
-#       "imagem":null,
-#       "marca":"Volkswagem",
-#       "modelo":"Gol",
-#       "placa":"FFF­5498",
-#       "valor":"20000"
-#    },
-#    {  
-#       "combustivel":"Gasolina",
-#       "imagem":null,
-#       "marca":"Volkswagem",
-#       "modelo":"Fox",
-#       "placa":"FOX­4125",
-#       "valor":"20000"
-#    },
-#    {  
-#       "combustivel":"Alcool",
-#       "imagem":"https://lh4.googleusercontent.com/­_AhcQKHf7rM/AAAAAAAAAAI/AAAAAAAAAAA/QM­pqL4NYaE/s48­c­k­no/photo.jpg",
-#       "marca":"Volkswagen",
-#       "modelo":"Fusca",
-#       "placa":"PAI­4121",
-#       "valor":"20000"
-#    }
-# ]
+  open_image: (path) =>
+    console.log path
+
+    @ngDialog.open({
+      className: 'ngdialog-theme-default auto'
+      template:
+        "<img src='#{path}' />"
+      plain: true
+    });

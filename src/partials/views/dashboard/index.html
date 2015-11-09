@@ -40,7 +40,7 @@
               <td>{{car.modelo}}</td>
               <td>{{car.marca}}</td>
               <td>
-                <a ng-if="car.imagem" ng-click="open_image(car.imagem)">Imagem
+                <a ng-if="car.imagem" ng-click="open_image(car.imagem); $event.stopPropagation();">Imagem
                 </a>
               </td>
               <td>{{car.combustivel}}</td>

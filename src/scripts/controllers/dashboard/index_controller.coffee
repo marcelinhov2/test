@@ -7,7 +7,6 @@ class DashboardIndex extends Controller
   init: =>
     do @declare_scope_vars
     do @declare_template_methods
-    do @set_listeners
 
   declare_scope_vars: ->
     @$scope.itemsByPage = 5
@@ -41,14 +40,9 @@ class DashboardIndex extends Controller
 
     @$scope.rowCollection = angular.copy(@$scope.safe_data)
 
-    console.log 'declare_scope_vars'
-
   declare_template_methods: ->
     @$scope.open_car = @open_car
     @$scope.open_image = @open_image
-
-  set_listeners: ->
-    console.log 'set_listeners'
 
   open_car: (car) =>
     @ngDialog.open({
@@ -60,8 +54,6 @@ class DashboardIndex extends Controller
     });
 
   open_image: (path) =>
-    console.log path
-
     @ngDialog.open({
       className: 'ngdialog-theme-default auto'
       template:

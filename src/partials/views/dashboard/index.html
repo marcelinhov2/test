@@ -34,17 +34,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="row in rowCollection">
+            <tr ng-click="open_car(car)" ng-repeat="car in rowCollection">
               <td></td>
-              <td>{{row.placa}}</td>
-              <td>{{row.modelo}}</td>
-              <td>{{row.marca}}</td>
+              <td>{{car.placa}}</td>
+              <td>{{car.modelo}}</td>
+              <td>{{car.marca}}</td>
               <td>
-                <a ng-if="row.imagem" ng-click="open_image(row.imagem)">Imagem
+                <a ng-if="car.imagem" ng-click="open_image(car.imagem)">Imagem
                 </a>
               </td>
-              <td>{{row.combustivel}}</td>
-              <td>{{row.valor}}</td>
+              <td>{{car.combustivel}}</td>
+              <td>{{car.valor}}</td>
             </tr>
           </tbody>
           <tfoot>

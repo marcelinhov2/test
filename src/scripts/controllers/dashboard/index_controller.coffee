@@ -168,6 +168,6 @@ class DashboardIndex extends Controller
     if car.is_selected
       @$scope.selected_cars.push car.id
     else
-      @$scope.selected_cars = _.without(@$scope.selected_cars, car.placa)
+      @$scope.selected_cars = _.without(@$scope.selected_cars, car.id)
 
-    console.log @$scope.selected_cars
+    @$scope.selected_cars = _.uniq(@$scope.selected_cars);

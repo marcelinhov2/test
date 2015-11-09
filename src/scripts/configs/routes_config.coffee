@@ -1,7 +1,6 @@
 class Routes extends Config
   constructor: (
     $stateProvider
-    $stickyStateProvider
     $urlRouterProvider
     $urlMatcherFactoryProvider
     $httpProvider
@@ -20,8 +19,6 @@ class Routes extends Config
           main:
             templateUrl : '/partials/views/dashboard/index.html'
             controller : 'dashboardIndexController'
-
-    $stickyStateProvider.enableDebug(true);
 
     $urlRouterProvider.rule ($injector, $location) ->
       path = $location.url()

@@ -1,15 +1,13 @@
 class DashboardIndex extends Controller
   constructor: (
     @$scope
+    @ngDialog
   ) -> do @init
     
   init: =>
-    do @declare_vars
     do @declare_scope_vars
+    do @declare_template_methods
     do @set_listeners
-
-  declare_vars: ->
-    console.log 'declare_vars'
 
   declare_scope_vars: ->
     @$scope.itemsByPage = 5
@@ -133,9 +131,20 @@ class DashboardIndex extends Controller
 
     console.log 'declare_scope_vars'
 
+  declare_template_methods: ->
+    @$scope.open_modal = @open_modal
+
   set_listeners: ->
     console.log 'set_listeners'
 
+  open_modal: (car) =>
+    @ngDialog.open({
+      className: 'ngdialog-theme-default'
+      template: "/partials/views/dashboard/modal.html"
+      controller : 'dashboardModalController'
+      scope: @$scope
+      data: (car) ? car : null
+    });
 
 # [  
 #    {  

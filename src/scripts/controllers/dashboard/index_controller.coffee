@@ -157,5 +157,3 @@ class DashboardIndex extends Controller
       @$scope.selected_cars.push car.placa
     else
       @$scope.selected_cars = _.without(@$scope.selected_cars, car.placa)
-
-    console.log @$scope.selected_cars

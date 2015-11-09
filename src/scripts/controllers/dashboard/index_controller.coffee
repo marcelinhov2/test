@@ -17,6 +17,7 @@ class DashboardIndex extends Controller
     
     @$scope.safe_data = [  
       {
+        "id": 1,
         "combustivel":"Flex",
         "imagem":null,
         "marca":"Volkswagem",
@@ -25,6 +26,7 @@ class DashboardIndex extends Controller
         "valor":10000
       }
       {
+        "id": 2,
         "combustivel":"Gasolina",
         "imagem":null,
         "marca":"Volkswagem",
@@ -33,6 +35,7 @@ class DashboardIndex extends Controller
         "valor":20000
       }
       {
+        "id": 3,
         "combustivel":"Alcool",
         "imagem":"http://placehold.it/350x150",
         "marca":"Volkswagen",
@@ -41,6 +44,7 @@ class DashboardIndex extends Controller
         "valor":30000
       }
       {
+        "id": 4,
         "combustivel":"Flex",
         "imagem":null,
         "marca":"Volkswagem",
@@ -49,6 +53,7 @@ class DashboardIndex extends Controller
         "valor":10000
       }
       {
+        "id": 5,
         "combustivel":"Gasolina",
         "imagem":null,
         "marca":"Volkswagem",
@@ -57,6 +62,7 @@ class DashboardIndex extends Controller
         "valor":20000
       }
       {
+        "id": 6,
         "combustivel":"Alcool",
         "imagem":"http://placehold.it/350x150",
         "marca":"Volkswagen",
@@ -65,6 +71,7 @@ class DashboardIndex extends Controller
         "valor":30000
       }
       {
+        "id": 7,
         "combustivel":"Flex",
         "imagem":null,
         "marca":"Volkswagem",
@@ -73,6 +80,7 @@ class DashboardIndex extends Controller
         "valor":10000
       }
       {
+        "id": 8,
         "combustivel":"Gasolina",
         "imagem":null,
         "marca":"Volkswagem",
@@ -81,6 +89,7 @@ class DashboardIndex extends Controller
         "valor":20000
       }
       {
+        "id": 9,
         "combustivel":"Alcool",
         "imagem":"http://placehold.it/350x150",
         "marca":"Volkswagen",
@@ -89,6 +98,7 @@ class DashboardIndex extends Controller
         "valor":30000
       }
       {
+        "id": 10,
         "combustivel":"Flex",
         "imagem":null,
         "marca":"Volkswagem",
@@ -97,6 +107,7 @@ class DashboardIndex extends Controller
         "valor":10000
       }
       {
+        "id": 11,
         "combustivel":"Gasolina",
         "imagem":null,
         "marca":"Volkswagem",
@@ -105,6 +116,7 @@ class DashboardIndex extends Controller
         "valor":20000
       }
       {
+        "id": 12,
         "combustivel":"Alcool",
         "imagem":"http://placehold.it/350x150",
         "marca":"Volkswagen",
@@ -154,6 +166,8 @@ class DashboardIndex extends Controller
       @$scope.selected_all = false
 
     if car.is_selected
-      @$scope.selected_cars.push car.placa
+      @$scope.selected_cars.push car.id
     else
       @$scope.selected_cars = _.without(@$scope.selected_cars, car.placa)
+
+    console.log @$scope.selected_cars

@@ -7,9 +7,12 @@ class DashboardIndex extends Controller
   init: =>
     do @declare_scope_vars
     do @declare_template_methods
+    do @set_listeners
 
   declare_scope_vars: ->
     @$scope.selected_cars = []
+    @$scope.selected_all = false
+
     @$scope.itemsByPage = 5
     
     @$scope.safe_data = [  
@@ -42,7 +45,7 @@ class DashboardIndex extends Controller
         "imagem":null,
         "marca":"Volkswagem",
         "modelo":"Gol",
-        "placa":"FFF­5498",
+        "placa":"1FFF­5498",
         "valor":10000
       }
       {
@@ -50,7 +53,7 @@ class DashboardIndex extends Controller
         "imagem":null,
         "marca":"Volkswagem",
         "modelo":"Fox",
-        "placa":"FOX­4125",
+        "placa":"1FOX­4125",
         "valor":20000
       }
       {
@@ -58,7 +61,7 @@ class DashboardIndex extends Controller
         "imagem":"http://placehold.it/350x150",
         "marca":"Volkswagen",
         "modelo":"Fusca",
-        "placa":"PAI­4121",
+        "placa":"1PAI­4121",
         "valor":30000
       }
       {
@@ -66,7 +69,7 @@ class DashboardIndex extends Controller
         "imagem":null,
         "marca":"Volkswagem",
         "modelo":"Gol",
-        "placa":"FFF­5498",
+        "placa":"2FFF­5498",
         "valor":10000
       }
       {
@@ -74,7 +77,7 @@ class DashboardIndex extends Controller
         "imagem":null,
         "marca":"Volkswagem",
         "modelo":"Fox",
-        "placa":"FOX­4125",
+        "placa":"2FOX­4125",
         "valor":20000
       }
       {
@@ -82,7 +85,7 @@ class DashboardIndex extends Controller
         "imagem":"http://placehold.it/350x150",
         "marca":"Volkswagen",
         "modelo":"Fusca",
-        "placa":"PAI­4121",
+        "placa":"2PAI­4121",
         "valor":30000
       }
       {
@@ -90,7 +93,7 @@ class DashboardIndex extends Controller
         "imagem":null,
         "marca":"Volkswagem",
         "modelo":"Gol",
-        "placa":"FFF­5498",
+        "placa":"3FFF­5498",
         "valor":10000
       }
       {
@@ -98,7 +101,7 @@ class DashboardIndex extends Controller
         "imagem":null,
         "marca":"Volkswagem",
         "modelo":"Fox",
-        "placa":"FOX­4125",
+        "placa":"3FOX­4125",
         "valor":20000
       }
       {
@@ -106,31 +109,7 @@ class DashboardIndex extends Controller
         "imagem":"http://placehold.it/350x150",
         "marca":"Volkswagen",
         "modelo":"Fusca",
-        "placa":"PAI­4121",
-        "valor":30000
-      }
-      {
-        "combustivel":"Flex",
-        "imagem":null,
-        "marca":"Volkswagem",
-        "modelo":"Gol",
-        "placa":"FFF­5498",
-        "valor":10000
-      }
-      {
-        "combustivel":"Gasolina",
-        "imagem":null,
-        "marca":"Volkswagem",
-        "modelo":"Fox",
-        "placa":"FOX­4125",
-        "valor":20000
-      }
-      {
-        "combustivel":"Alcool",
-        "imagem":"http://placehold.it/350x150",
-        "marca":"Volkswagen",
-        "modelo":"Fusca",
-        "placa":"PAI­4121",
+        "placa":"3PAI­4121",
         "valor":30000
       }
     ]
@@ -143,6 +122,10 @@ class DashboardIndex extends Controller
     
     @$scope.check_all = @check_all
     @$scope.handle_selected_cars = @handle_selected_cars
+
+  set_listeners: ->
+    @$scope.$watch 'rowCollection', (now, was, scope) =>
+      @$scope.selected_all = false
 
   open_car: (car) =>
     @ngDialog.open({
@@ -162,13 +145,6 @@ class DashboardIndex extends Controller
     });
 
   check_all: =>
-    @$scope.selected_cars = []
-
-    if @$scope.selected_all
-      @$scope.selected_all = true
-    else
-      @$scope.selected_all = false
-
     angular.forEach @$scope.rowCollection, (item) =>
       item.is_selected = @$scope.selected_all
       @handle_selected_cars(item)
@@ -181,3 +157,5 @@ class DashboardIndex extends Controller
       @$scope.selected_cars.push car.placa
     else
       @$scope.selected_cars = _.without(@$scope.selected_cars, car.placa)
+
+    console.log @$scope.selected_cars

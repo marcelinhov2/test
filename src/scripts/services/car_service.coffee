@@ -21,8 +21,8 @@ class Car extends Service
 
   create: (data) =>
     data.id = do _.uniqueId
-
     @cars.push data
+
     do @write
 
   read: (id) =>

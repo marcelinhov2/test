@@ -1,6 +1,7 @@
 class DashboardIndex extends Controller
   constructor: (
     @$scope
+    @carService
     @ngDialog
   ) -> do @init
     
@@ -15,121 +16,11 @@ class DashboardIndex extends Controller
 
     @$scope.itemsByPage = 5
     
-    @$scope.safe_data = [  
-      {
-        "id": 1,
-        "combustivel":"Flex",
-        "imagem":null,
-        "marca":"Volkswagem",
-        "modelo":"Gol",
-        "placa":"FFF­5498",
-        "valor":10000
-      }
-      {
-        "id": 2,
-        "combustivel":"Gasolina",
-        "imagem":null,
-        "marca":"Volkswagem",
-        "modelo":"Fox",
-        "placa":"FOX­4125",
-        "valor":20000
-      }
-      {
-        "id": 3,
-        "combustivel":"Alcool",
-        "imagem":"http://placehold.it/350x150",
-        "marca":"Volkswagen",
-        "modelo":"Fusca",
-        "placa":"PAI­4121",
-        "valor":30000
-      }
-      {
-        "id": 4,
-        "combustivel":"Flex",
-        "imagem":null,
-        "marca":"Volkswagem",
-        "modelo":"Gol",
-        "placa":"1FFF­5498",
-        "valor":10000
-      }
-      {
-        "id": 5,
-        "combustivel":"Gasolina",
-        "imagem":null,
-        "marca":"Volkswagem",
-        "modelo":"Fox",
-        "placa":"1FOX­4125",
-        "valor":20000
-      }
-      {
-        "id": 6,
-        "combustivel":"Alcool",
-        "imagem":"http://placehold.it/350x150",
-        "marca":"Volkswagen",
-        "modelo":"Fusca",
-        "placa":"1PAI­4121",
-        "valor":30000
-      }
-      {
-        "id": 7,
-        "combustivel":"Flex",
-        "imagem":null,
-        "marca":"Volkswagem",
-        "modelo":"Gol",
-        "placa":"2FFF­5498",
-        "valor":10000
-      }
-      {
-        "id": 8,
-        "combustivel":"Gasolina",
-        "imagem":null,
-        "marca":"Volkswagem",
-        "modelo":"Fox",
-        "placa":"2FOX­4125",
-        "valor":20000
-      }
-      {
-        "id": 9,
-        "combustivel":"Alcool",
-        "imagem":"http://placehold.it/350x150",
-        "marca":"Volkswagen",
-        "modelo":"Fusca",
-        "placa":"2PAI­4121",
-        "valor":30000
-      }
-      {
-        "id": 10,
-        "combustivel":"Flex",
-        "imagem":null,
-        "marca":"Volkswagem",
-        "modelo":"Gol",
-        "placa":"3FFF­5498",
-        "valor":10000
-      }
-      {
-        "id": 11,
-        "combustivel":"Gasolina",
-        "imagem":null,
-        "marca":"Volkswagem",
-        "modelo":"Fox",
-        "placa":"3FOX­4125",
-        "valor":20000
-      }
-      {
-        "id": 12,
-        "combustivel":"Alcool",
-        "imagem":"http://placehold.it/350x150",
-        "marca":"Volkswagen",
-        "modelo":"Fusca",
-        "placa":"3PAI­4121",
-        "valor":30000
-      }
-    ]
-
-    @$scope.rowCollection = angular.copy(@$scope.safe_data)
+    do @get_data
 
   declare_template_methods: ->
-    @$scope.delete_car = @delete_car
+    @$scope.update = @update
+    @$scope.delete = @delete
 
     @$scope.open_car = @open_car
     @$scope.open_image = @open_image
@@ -140,6 +31,10 @@ class DashboardIndex extends Controller
   set_listeners: ->
     @$scope.$watch 'rowCollection', (now, was, scope) =>
       @$scope.selected_all = false
+
+  get_data: ->
+    @$scope.safe_data = @carService.get_all()
+    @$scope.rowCollection = angular.copy(@$scope.safe_data)
 
   open_car: (car) =>
     @ngDialog.open({
@@ -174,9 +69,10 @@ class DashboardIndex extends Controller
 
     @$scope.selected_cars = _.uniq(@$scope.selected_cars);
 
-  delete_car: =>
-    filtered = _.reject(@$scope.safe_data, (c) =>
-      @$scope.selected_cars.indexOf(c.id) != -1
-    )
+  update: (data) =>
+    @carService.update(data)
+    do @get_data
 
-    console.log filtered
+  delete: =>
+    @carService.delete(@$scope.selected_cars)
+    do @get_data

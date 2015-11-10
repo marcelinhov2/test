@@ -7,7 +7,7 @@ class Cars extends Value
         "imagem":null
         "marca":"Volkswagem"
         "modelo":"Gol"
-        "placa":"FFF­5498"
+        "placa":"FFF-5498"
         "valor":10000
       }
       {
@@ -16,7 +16,7 @@ class Cars extends Value
         "imagem":null
         "marca":"Volkswagem"
         "modelo":"Fox"
-        "placa":"FOX­4125"
+        "placa":"FOX-4125"
         "valor":20000
       }
       {
@@ -25,7 +25,7 @@ class Cars extends Value
         "imagem":"http://placehold.it/350x150"
         "marca":"Volkswagen"
         "modelo":"Fusca"
-        "placa":"PAI­4121"
+        "placa":"PAI-4121"
         "valor":30000
       }
     ]

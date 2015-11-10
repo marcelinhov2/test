@@ -23,7 +23,7 @@ class CarsModal extends Controller
       @$scope.car = {}
 
     if @$scope.type is 'edit'
-      @$scope.car = @$scope.$parent.read(@$stateParams.id)
+      @$scope.car = @$scope.$parent.read(parseInt(@$stateParams.id))
 
   open_modal: ->
     @dialog = @ngDialog.open({

@@ -2,7 +2,7 @@ class Cars extends Value
   constructor: ->
     return [  
       {
-        "id": do _.uniqueId
+        "id": parseInt(do _.uniqueId)
         "combustivel":"Flex"
         "imagem":null
         "marca":"Volkswagem"
@@ -11,7 +11,7 @@ class Cars extends Value
         "valor":10000
       }
       {
-        "id": do _.uniqueId
+        "id": parseInt(do _.uniqueId)
         "combustivel":"Gasolina"
         "imagem":null
         "marca":"Volkswagem"
@@ -20,7 +20,7 @@ class Cars extends Value
         "valor":20000
       }
       {
-        "id": do _.uniqueId
+        "id": parseInt(do _.uniqueId)
         "combustivel":"Alcool"
         "imagem":"http://placehold.it/350x150"
         "marca":"Volkswagen"

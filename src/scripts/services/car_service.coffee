@@ -22,8 +22,12 @@ class Car extends Service
     do @success_message
 
   create: (data) =>
-    data.id = do _.uniqueId
-    @cars.push data
+    data.id = @localStorageService.get('cars_next_id') or do _.uniqueId
+    data.id = parseInt(data.id)
+
+    @cars.unshift data
+
+    @localStorageService.set('cars_next_id', data.id + 1)
 
     do @write
 

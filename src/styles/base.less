@@ -53,6 +53,33 @@ body{
   margin:0;
 }
 
+.sort{
+  cursor: pointer;
+
+  &:after {
+    content :'\e150';
+    display:inline-block;
+    vertical-align:baseline;
+    margin:0 0 0 10px;
+    font-family:'Glyphicons Halflings';
+    line-height:20px;
+    font-size:12px;
+    font-weight:400;
+  }
+
+  &.st-sort-ascent, &.st-sort-descent{
+    background-color: #f9f9f9;
+  }
+
+  &.st-sort-ascent:after {
+    content:'\e151';
+  }
+
+  &.st-sort-descent:after {
+    content:'\e152';
+  }
+}
+
 .table{
   border:1px @lightgray solid;
 

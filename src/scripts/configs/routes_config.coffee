@@ -20,16 +20,12 @@ class Routes extends Config
             templateUrl : '/partials/views/dashboard/index.html'
             controller : 'dashboardIndexController'
 
-    $urlRouterProvider.rule ($injector, $location) ->
-      path = $location.url()
-      # check to see if the path already has a slash where it should be
-      if path[path.length - 1] == '/' or path.indexOf('/?') > -1
-        return
-      if path.indexOf('?') > -1
-        return path.replace('?', '/?')
-      path + '/'
-      
-    $urlRouterProvider.otherwise('/dashboard');
+      .state 
+        name: 'App.dashboard.modal'
+        url: '/:type/:id'
+        views: 
+          modal:
+            controller : 'dashboardModalController'
 
+    $urlRouterProvider.otherwise('/dashboard');
     $locationProvider.html5Mode true
-    $httpProvider.interceptors.push('HttpRequestInterceptor');

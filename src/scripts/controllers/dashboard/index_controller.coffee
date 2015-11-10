@@ -1,6 +1,8 @@
 class DashboardIndex extends Controller
   constructor: (
     @$scope
+    @$state
+    @$stateParams
     @carService
     @ngDialog
   ) -> do @init
@@ -17,6 +19,7 @@ class DashboardIndex extends Controller
     do @get_data
 
   declare_template_methods: ->
+    @$scope.read = @read
     @$scope.update = @update
     @$scope.delete = @delete
 
@@ -35,13 +38,7 @@ class DashboardIndex extends Controller
     @$scope.rowCollection = angular.copy(@$scope.safe_data)
 
   open_car: (car) =>
-    @ngDialog.open({
-      className: 'ngdialog-theme-default'
-      template: "/partials/views/dashboard/modal.html"
-      controller : 'dashboardModalController'
-      scope: @$scope
-      data: (car) ? car : null
-    });
+    @$state.go("App.dashboard.modal", {id: car.id, type: "edit"})
 
   open_image: (path) =>
     @ngDialog.open({
@@ -66,6 +63,9 @@ class DashboardIndex extends Controller
       @$scope.selected_cars = _.without(@$scope.selected_cars, car.id)
 
     @$scope.selected_cars = _.uniq(@$scope.selected_cars);
+
+  read: (id) =>
+    return @carService.read(id)
 
   update: (data) =>
     @carService.update(data)

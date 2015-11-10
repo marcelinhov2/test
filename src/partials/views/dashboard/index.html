@@ -52,7 +52,7 @@
                 <span ng-if="!car.imagem">Sem imagem</span>
               </td>
               <td>{{car.combustivel}}</td>
-              <td>{{car.valor}}</td>
+              <td>R${{car.valor | setDecimal: 2}}</td>
             </tr>
           </tbody>
           <tfoot>

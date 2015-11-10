@@ -21,7 +21,14 @@
     "bootstrap": "latest",
     "angular-smart-table": "latest",
     "ng-dialog": "latest",
-    "angular-input-masks": "latest"
+    "angular-input-masks": "latest",
+    "angular-dynamic-locale": "~0.1.28",
+    "angular-i18n": "~1.4.7"
+  },
+  "overrides": {
+    "angular-i18n": {
+      "main": "./angular-locale_pt-br.js"
+    }
   },
   "resolutions": {
     "angular": "^1.4.x",

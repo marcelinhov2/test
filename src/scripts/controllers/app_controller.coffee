@@ -4,6 +4,3 @@ class App extends Controller
   ) -> do @init
     
   init: =>
-    console.log '--------------------'
-    console.log 'init app'
-    console.log '--------------------'

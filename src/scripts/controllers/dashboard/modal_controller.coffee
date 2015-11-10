@@ -14,8 +14,6 @@ class DashboardModal extends Controller
   declare_scope_vars: ->
     do @init_data
 
-    console.log @$scope.car
-
   declare_template_methods: ->
     @$scope.submit = @submit
 

@@ -2,7 +2,7 @@
 AngularJS application using Angular-Kickoff ( https://github.com/marcelinhov2/angular-kickoff )
 
 ##App Link
-https://infinite-headland-8813.herokuapp.com/cars
+https://infinite-headland-8813.herokuapp.com
 
 ##Features
 * Desenvolver CRUD de cadastro de veículos;

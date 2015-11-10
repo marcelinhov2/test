@@ -21,6 +21,7 @@
 @import "../../bower_components/bootstrap/less/input-groups.less";
 @import "../../bower_components/bootstrap/less/pagination.less";
 
+@import "colors.less";
 
 @import "directives/search.less";
 @import "directives/pagination.less";
@@ -33,4 +34,32 @@
 
 .text-center{
   text-align: center;
+}
+
+.cursor-pointer{
+  cursor:pointer;
+}
+
+.table{
+  border:1px @lightgray solid;
+
+  &.table-hover tbody tr:hover td {
+    background: @lavender;
+    border-top: 1px @skyblue solid;
+    border-bottom: 1px @skyblue solid;
+  }
+
+  thead{
+    background:@ghostwhite;
+    
+    th{
+      border-bottom:0 !important;
+    }
+  }
+
+  tr{
+    th, td{
+      color:@darkslateblue;
+    }
+  }
 }

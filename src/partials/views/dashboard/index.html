@@ -9,7 +9,7 @@
           <a ng-click="delete()" ng-if="selected_cars.length > 0" class="btn btn-danger">Excluir {{selected_cars.length}} carros selecionados</a>
         </div>
 
-        <div class="pull-right col-md-3">
+        <div id="search" class="pull-right col-md-3">
           <div class="form-group">
             <div class="input-group">
               <input st-search class="form-control" placeholder="Pesquisar" type="text"/>
@@ -24,7 +24,7 @@
 
     <div class="row">
       <div class="col-md-9 col-centered">
-        <table class="table table-striped">
+        <table class="table table-hover">
           <thead>
             <tr>
               <th>
@@ -39,7 +39,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-click="open_car(car)" ng-repeat="car in rowCollection">
+            <tr class="cursor-pointer" ng-click="open_car(car)" ng-repeat="car in rowCollection">
               <td>
                 <input type="checkbox" ng-model="car.is_selected" ng-change="handle_selected_cars(car, true)" ng-click="$event.stopPropagation();">
               </td>
@@ -47,7 +47,7 @@
               <td>{{car.modelo}}</td>
               <td>{{car.marca}}</td>
               <td>
-                <a ng-if="car.imagem" ng-click="open_image(car.imagem); $event.stopPropagation();">Imagem
+                <a class="cursor-pointer" ng-if="car.imagem" ng-click="open_image(car.imagem); $event.stopPropagation();">Imagem
                 </a>
                 <span ng-if="!car.imagem">Sem imagem</span>
               </td>
@@ -55,14 +55,13 @@
               <td>R${{car.valor | setDecimal: 2}}</td>
             </tr>
           </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="7" class="text-center">
-                <div st-template="/partials/directives/pagination.html" st-pagination="" st-items-by-page="5" st-displayed-pages="5"></div>
-              </td>
-            </tr>
-          </tfoot>
         </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-9 col-centered text-center">
+        <div st-template="/partials/directives/pagination.html" st-pagination="" st-items-by-page="5" st-displayed-pages="5"></div>
       </div>
     </div>
   </section>

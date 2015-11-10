@@ -1,6 +1,3 @@
-// Core variables and mixins
-@import "../../bower_components/bootstrap/less/mixins.less";
-
 // Reset
 @import "../../bower_components/bootstrap/less/normalize.less";
 
@@ -15,11 +12,15 @@
 @import "../../bower_components/bootstrap/less/tables.less";
 @import "../../bower_components/bootstrap/less/forms.less";
 @import "../../bower_components/bootstrap/less/buttons.less";
+@import "../../bower_components/bootstrap/less/mixins";
+
+@import "../../bower_components/font-awesome/less/font-awesome.less";
 
 // Components
 @import "../../bower_components/bootstrap/less/glyphicons.less";
 @import "../../bower_components/bootstrap/less/input-groups.less";
 @import "../../bower_components/bootstrap/less/pagination.less";
+@import "../../bower_components/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.less";
 
 @import "colors.less";
 
@@ -48,8 +49,16 @@ body{
   padding:10px 30px;
 }
 
+.radio, .checkbox{
+  margin:0;
+}
+
 .table{
   border:1px @lightgray solid;
+
+  a{
+    text-decoration:underline;
+  }
 
   &.table-hover tbody tr:hover td {
     background: @lavender;
@@ -73,6 +82,7 @@ body{
 
     th, td{
       color:@darkslateblue;
+      padding:15px !important;
     }
   }
 }

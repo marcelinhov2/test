@@ -28,7 +28,10 @@
           <thead>
             <tr>
               <th>
-                <input type="checkbox" ng-model="selected_all" ng-click="check_all()">
+                <div class="checkbox">
+                  <input type="checkbox" ng-model="selected_all" ng-click="check_all()" id="select_all">
+                  <label for="select_all"></label>
+                </div>
               </th>
               <th st-sort="placa">Placa</th>
               <th st-sort="modelo">Modelo</th>
@@ -41,7 +44,10 @@
           <tbody>
             <tr class="cursor-pointer" ng-click="open_car(car)" ng-repeat="car in rowCollection">
               <td>
-                <input type="checkbox" ng-model="car.is_selected" ng-change="handle_selected_cars(car, true)" ng-click="$event.stopPropagation();">
+                <div class="checkbox">
+                  <input type="checkbox" ng-model="car.is_selected" ng-change="handle_selected_cars(car, true)" ng-click="$event.stopPropagation();" id="checkbox_{{row.id}}">
+                  <label for="checkbox_{{row.id}}"></label>
+                </div>
               </td>
               <td>{{car.placa}}</td>
               <td>{{car.modelo}}</td>

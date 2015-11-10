@@ -64,6 +64,14 @@ body{
     background: @lavender;
     border-top: 1px @skyblue solid;
     border-bottom: 1px @skyblue solid;
+
+    .checkbox{
+      label{
+        &::before{
+          border: 1px solid @skyblue;
+        }
+      }
+    }
   }
 
   thead{

@@ -1,4 +1,4 @@
-class DashboardIndex extends Controller
+class CarsIndex extends Controller
   constructor: (
     @$scope
     @$state
@@ -39,7 +39,7 @@ class DashboardIndex extends Controller
     @$scope.rowCollection = angular.copy(@$scope.safe_data)
 
   open_car: (car) =>
-    @$state.go("App.dashboard.modal", {id: car.id, type: "edit"})
+    @$state.go("App.cars.modal", {id: car.id, type: "edit"})
 
   open_image: (path) =>
     @ngDialog.open({

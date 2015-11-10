@@ -13,19 +13,19 @@ class Routes extends Config
         controller : 'appController'
 
       .state 
-        name: 'App.dashboard'
-        url: '/dashboard'
+        name: 'App.cars'
+        url: '/cars'
         views: 
           main:
-            templateUrl : '/partials/views/dashboard/index.html'
-            controller : 'dashboardIndexController'
+            templateUrl : '/partials/views/cars/index.html'
+            controller : 'carsIndexController'
 
       .state 
-        name: 'App.dashboard.modal'
+        name: 'App.cars.modal'
         url: '/:type/:id'
         views: 
           modal:
-            controller : 'dashboardModalController'
+            controller : 'carsModalController'
 
-    $urlRouterProvider.otherwise('/dashboard');
+    $urlRouterProvider.otherwise('/cars');
     $locationProvider.html5Mode true

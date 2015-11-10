@@ -1,4 +1,4 @@
-class DashboardModal extends Controller
+class CarsModal extends Controller
   constructor: (
     @$scope
     @$state
@@ -28,12 +28,12 @@ class DashboardModal extends Controller
   open_modal: ->
     @dialog = @ngDialog.open({
       className: 'ngdialog-theme-default'
-      template: "/partials/views/dashboard/modal.html"
+      template: "/partials/views/cars/modal.html"
       scope: @$scope
     });
 
     @dialog.closePromise.then (data) =>
-      @$state.go("App.dashboard")
+      @$state.go("App.cars")
 
   submit: =>
     @$scope[@$scope.type](@$scope.car)

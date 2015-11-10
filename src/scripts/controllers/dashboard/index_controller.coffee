@@ -78,4 +78,4 @@ class DashboardIndex extends Controller
 
   delete: =>
     @carService.delete(@$scope.selected_cars)
-    do @get_data
+    do @declare_scope_vars

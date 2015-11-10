@@ -42,7 +42,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="cursor-pointer" ng-click="open_car(car)" ng-repeat="car in rowCollection">
+            <tr class="cursor-pointer" ng-click="open_car(car)" ng-repeat="car in rowCollection | orderBy:'-id'">
               <td>
                 <div class="checkbox">
                   <input type="checkbox" ng-model="car.is_selected" ng-change="handle_selected_cars(car, true)" ng-click="$event.stopPropagation();" id="checkbox_{{row.id}}">

@@ -77,5 +77,8 @@ class DashboardIndex extends Controller
     do @get_data
 
   delete: =>
-    @carService.delete(@$scope.selected_cars)
-    do @declare_scope_vars
+    are_you_sure = confirm('Você tem certeza que deseja deletar os carros selecionados?')
+    
+    if are_you_sure
+      @carService.delete(@$scope.selected_cars)
+      do @declare_scope_vars

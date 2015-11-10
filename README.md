@@ -15,7 +15,7 @@ https://infinite-headland-8813.herokuapp.com
 
 Clone repo using git
 ```sh
-git@github.com:marcelinhov2/test.git
+git clone git@github.com:marcelinhov2/test.git
 cd test
 ```
 

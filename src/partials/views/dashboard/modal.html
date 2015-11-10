@@ -3,7 +3,8 @@
     <div class="col-md-12">
       <form name="carForm" ng-submit="submit()">
         <header>
-          <h2>Novo carro</h2>
+          <h2 ng-if="type == 'create'">Novo carro</h2>
+          <h2 ng-if="type == 'edit'">Editar carro: {{car.id}}</h2>
         </header>
         <div class="form-group">
           <label for="placa" class="col-md-16 control-label">Placa*</label>

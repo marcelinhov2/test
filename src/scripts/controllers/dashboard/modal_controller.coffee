@@ -12,16 +12,17 @@ class DashboardModal extends Controller
     do @open_modal
 
   declare_scope_vars: ->
+    @$scope.type = @$stateParams.type
     do @init_data
 
   declare_template_methods: ->
     @$scope.submit = @submit
 
   init_data: ->
-    if @$stateParams.type is 'create'
+    if @$scope.type is 'create'
       @$scope.car = {}
 
-    if @$stateParams.type is 'edit'
+    if @$scope.type is 'edit'
       @$scope.car = @$scope.$parent.read(@$stateParams.id)
 
   open_modal: ->
@@ -35,5 +36,5 @@ class DashboardModal extends Controller
       @$state.go("App.dashboard")
 
   submit: =>
-    @$scope[@$stateParams.type](@$scope.car)
+    @$scope[@$scope.type](@$scope.car)
     @ngDialog.close()

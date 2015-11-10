@@ -19,8 +19,9 @@ class DashboardIndex extends Controller
     do @get_data
 
   declare_template_methods: ->
+    @$scope.create = @create
     @$scope.read = @read
-    @$scope.update = @update
+    @$scope.edit = @edit
     @$scope.delete = @delete
 
     @$scope.open_car = @open_car
@@ -64,10 +65,14 @@ class DashboardIndex extends Controller
 
     @$scope.selected_cars = _.uniq(@$scope.selected_cars);
 
+  create: (car) =>
+    @carService.create(car)
+    do @get_data
+
   read: (id) =>
     return @carService.read(id)
 
-  update: (data) =>
+  edit: (data) =>
     @carService.update(data)
     do @get_data
 

@@ -7,15 +7,17 @@ class DashboardModal extends Controller
   ) -> do @init
     
   init: =>
-    console.log 'init modal'
-
     do @declare_scope_vars
+    do @declare_template_methods
     do @open_modal
 
   declare_scope_vars: ->
     do @init_data
 
     console.log @$scope.car
+
+  declare_template_methods: ->
+    @$scope.submit = @submit
 
   init_data: ->
     if @$stateParams.type is 'create'
@@ -28,7 +30,12 @@ class DashboardModal extends Controller
     @dialog = @ngDialog.open({
       className: 'ngdialog-theme-default'
       template: "/partials/views/dashboard/modal.html"
+      scope: @$scope
     });
 
     @dialog.closePromise.then (data) =>
       @$state.go("App.dashboard")
+
+  submit: =>
+    @$scope[@$stateParams.type](@$scope.car)
+    @ngDialog.close()

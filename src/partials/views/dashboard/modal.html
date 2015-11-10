@@ -6,9 +6,49 @@
           <h2>Novo carro</h2>
         </header>
         <div class="form-group">
-          <label for="old_password" class="col-md-16 control-label">Senha atual*</label>
+          <label for="placa" class="col-md-16 control-label">Placa*</label>
           <div>
-            <input id="old_password" ng-model="data.old_password" name="old_password" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" type="password" required="" class="form-control"/>
+            <input id="placa" ng-model="car.placa" name="placa" type="text" required="" class="form-control"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="imagem" class="col-md-16 control-label">Imagem</label>
+          <div>
+            <input id="imagem" ng-model="car.imagem" name="imagem" type="text" class="form-control"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="marca" class="col-md-16 control-label">Marca*</label>
+          <div>
+            <input id="marca" ng-model="car.marca" name="marca" type="text" required="" class="form-control"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="modelo" class="col-md-16 control-label">Modelo*</label>
+          <div>
+            <input id="modelo" ng-model="car.modelo" name="modelo" type="text" required="" class="form-control"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="combustivel" class="col-md-16 control-label">Combustível</label>
+          <div>
+            <select id="combustivel" ng-model="car.combustivel" class="form-control">
+              <option value="Gasolina">
+                Gasolina
+              </option>
+              <option value="Álcool">
+                Álcool
+              </option>
+              <option value="Flex">
+                Flex
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="valor" class="col-md-16 control-label">Valor</label>
+          <div>
+            <input id="valor" ng-model="car.valor" name="valor" type="text" ui-money-mask class="form-control"/>
           </div>
         </div>
         <div class="form-group">

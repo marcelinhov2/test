@@ -5,4 +5,5 @@ class App extends App then constructor: -> return [
   'ngResource'
   'ngDialog'
   'LocalStorageModule'
+  'ui.utils.masks'
 ]

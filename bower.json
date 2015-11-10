@@ -20,6 +20,11 @@
     "ui-router-extras": "latest",
     "bootstrap": "latest",
     "angular-smart-table": "latest",
-    "ng-dialog": "latest"
+    "ng-dialog": "latest",
+    "angular-input-masks": "latest"
+  },
+  "resolutions": {
+    "angular": "^1.4.x",
+    "string-mask": "~0.2.0"
   }
 }

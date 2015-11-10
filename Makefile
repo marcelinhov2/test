@@ -18,9 +18,3 @@ compile:
 
 build:
 	@$(GU) build --compress
-
-karma:
-	@$(KA) start tests/karma.conf.js
-
-# protractor:
-# 	@$(PR) tests/protractor-conf.js

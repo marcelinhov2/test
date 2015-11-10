@@ -13,8 +13,6 @@ class DashboardIndex extends Controller
   declare_scope_vars: ->
     @$scope.selected_cars = []
     @$scope.selected_all = false
-
-    @$scope.itemsByPage = 5
     
     do @get_data
 

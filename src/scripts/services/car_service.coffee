@@ -16,11 +16,14 @@ class Car extends Service
   get_all: =>
     return @localStorageService.get('cars') || @cars
 
+  write: =>
+    @localStorageService.set('cars', @cars)
+
   create: (data) =>
     data.id = do _.uniqueId
 
     @cars.push data
-    @localStorageService.set('cars', @cars)
+    do @write
 
   read: (id) =>
     return _.find(@cars, {id: id})
@@ -29,7 +32,7 @@ class Car extends Service
     car = _.find(@cars, {id: data.id})
     car = _.merge(car, data)
 
-    @localStorageService.set('cars', @cars)
+    do @write
 
   delete: (ids) =>
     i = 0
@@ -38,4 +41,4 @@ class Car extends Service
       @cars = _.reject(@cars, {id: ids[i]})
       i++
 
-    do @update
+    do @write

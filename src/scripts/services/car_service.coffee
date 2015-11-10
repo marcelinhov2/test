@@ -2,6 +2,7 @@ class Car extends Service
   constructor: (
     @cars
     @localStorageService
+    @notify
   ) ->
     @cars = @get_all()
 
@@ -18,6 +19,7 @@ class Car extends Service
 
   write: =>
     @localStorageService.set('cars', @cars)
+    do @success_message
 
   create: (data) =>
     data.id = do _.uniqueId
@@ -42,3 +44,9 @@ class Car extends Service
       i++
 
     do @write
+
+  success_message: =>
+    @notify({
+      message: "Dados atualizados com sucesso!"
+      duration: 3000  
+    });

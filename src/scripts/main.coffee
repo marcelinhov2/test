@@ -6,4 +6,5 @@ class App extends App then constructor: -> return [
   'ngDialog'
   'LocalStorageModule'
   'ui.utils.masks'
+  'cgNotify'
 ]

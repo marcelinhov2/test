@@ -40,6 +40,10 @@
   cursor:pointer;
 }
 
+body{
+  background:@lightblue; 
+}
+
 .table{
   border:1px @lightgray solid;
 
@@ -50,14 +54,19 @@
   }
 
   thead{
-    background:@ghostwhite;
-    
     th{
       border-bottom:0 !important;
+    }
+
+    tr{
+      background:@ghostwhite;
     }
   }
 
   tr{
+    background:@white;
+    border:1px @lightgray solid;
+
     th, td{
       color:@darkslateblue;
     }

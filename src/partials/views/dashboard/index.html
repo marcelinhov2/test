@@ -3,7 +3,7 @@
 <div class="container-fluid">
   <section st-table="rowCollection" st-safe-src="safe_data">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-9 col-centered">
         <div class="pull-left">
           <a ui-sref="App.dashboard.modal({type: 'create'})" class="btn btn-success">Novo Carro</a>
           <a ng-click="delete()" ng-if="selected_cars.length > 0" class="btn btn-danger">Excluir {{selected_cars.length}} carros selecionados</a>
@@ -23,7 +23,7 @@
     </div>
 
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-9 col-centered">
         <table class="table table-striped">
           <thead>
             <tr>

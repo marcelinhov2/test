@@ -4,7 +4,7 @@ KA=node_modules/karma/bin/karma
 PR=node_modules/.bin/protractor
 
 setup:
-	npm install
+	npm install --no-progress
 	@$(BO) install
 
 remove_remote:
@@ -18,3 +18,9 @@ compile:
 
 build:
 	@$(GU) build --compress
+
+karma:
+	@$(KA) start tests/karma-tests/karma.conf.js
+
+# protractor:
+# 	@$(PR) tests/e2e-tests/protractor-conf.js

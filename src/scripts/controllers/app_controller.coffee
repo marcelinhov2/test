@@ -4,3 +4,4 @@ class App extends Controller
   ) -> do @init
     
   init: =>
+    @$scope.test = 'teste'

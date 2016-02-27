@@ -13,6 +13,7 @@
   "devDependencies": {},
   "dependencies": {
     "angular": "latest",
+    "angular-mocks": "latest",
     "lodash": "latest",
     "ui-router": "latest",
     "angular-resource": "latest",

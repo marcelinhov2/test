@@ -27,7 +27,7 @@ paths =
   images:     'src/images/**/*'
   styles:     'src/styles/**/*.less'
   base_style: 'src/styles/base.less'
-  scripts:    'src/scripts/**/*.coffee'
+  scripts:    'src/scripts/**/*.js'
   partials:   'src/partials/**/*.html'
 
 folder = if (argv.compress) then 'dist' else 'www'
@@ -53,8 +53,8 @@ gulp.task 'scripts', ->
   gulp.src paths.scripts
     .pipe cache('scripts')
     .pipe preprocess context: NODE_ENV: env
-    .pipe do classify
-    .pipe coffee bare: false
+    # .pipe do classify
+    # .pipe coffee bare: false
     .pipe gulpif(argv.compress, uglify())
     .pipe gulpif(argv.compress, concat('app.js'))
     .pipe gulpif(argv.compress, rev())

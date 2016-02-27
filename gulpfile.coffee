@@ -58,6 +58,10 @@ gulp.task 'scripts', ->
     .pipe gulpif(argv.compress, uglify())
     .pipe gulpif(argv.compress, concat('app.js'))
     .pipe gulpif(argv.compress, rev())
+
+    .pipe uglify()
+    .pipe concat('init.js')    
+
     .pipe gulp.dest "#{folder}/scripts"
 
 gulp.task 'styles', ->

@@ -1,22 +1,14 @@
 (function() {
-  var App,
-    bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+  var AppController;
 
-  App = (function() {
-    function App($scope) {
-      this.$scope = $scope;
-      this.init = bind(this.init, this);
-      this.init();
+  AppController = function AppController($scope) {
+    function init(){
+      $scope.test = 'teste';
     }
 
-    App.prototype.init = function() {
-      return this.$scope.test = 'teste';
-    };
+    init();
+  }
 
-    return App;
+  angular.module('app').controller('appController', ['$scope', AppController]);
 
-  })();
-
-  angular.module('app').controller('appController', ['$scope', App]);
-
-}).call(this);
+})();

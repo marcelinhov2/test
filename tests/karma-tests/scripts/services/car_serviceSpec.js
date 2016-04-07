@@ -8,7 +8,6 @@ describe("Car Service", function () {
     }));
 
     it("check service", function () {
-      console.log(service);
       expect(true).toBe(true);        
     });
 });

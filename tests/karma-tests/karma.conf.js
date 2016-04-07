@@ -5,9 +5,9 @@ module.exports = function(config){
 
     files : [
       'www/scripts/dependencies.js',
-      'www/scripts/init.js',
-      'www/scripts/**/*.js',
-      'tests/karma-tests/scripts/**/*.js'
+      'www/scripts/main.js',
+      'www/scripts/templates.js',
+      'tests/karma-tests/app/**/*.js'
     ],
 
     autoWatch : false,

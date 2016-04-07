@@ -21,12 +21,12 @@ rev           = require 'gulp-rev'
 paths =
   base:       'src/'
   index:      'src/index.html'
-  fonts:      'src/fonts/**/*'
-  images:     'src/images/**/*'
+  fonts:      'src/assets/fonts/**/*'
+  images:     'src/assets/images/**/*'
   styles:     'src/styles/**/*.less'
   base_style: 'src/styles/base.less'
-  scripts:    'src/scripts/**/*.js'
-  partials:   'src/partials/**/*.html'
+  scripts:    ['src/app/*.js', 'src/app/**/*.js']
+  partials:   'src/app/**/*.html'
 
 folder = if (argv.compress) then 'dist' else 'www'
 env = if (argv.compress) then 'production' else 'testing'
@@ -51,15 +51,9 @@ gulp.task 'scripts', ->
   gulp.src paths.scripts
     .pipe cache('scripts')
     .pipe preprocess context: NODE_ENV: env
-    # .pipe do classify
-    # .pipe coffee bare: false
     .pipe gulpif(argv.compress, uglify())
-    .pipe gulpif(argv.compress, concat('app.js'))
+    .pipe concat('main.js')
     .pipe gulpif(argv.compress, rev())
-
-    .pipe uglify()
-    .pipe concat('init.js')    
-
     .pipe gulp.dest "#{folder}/scripts"
 
 gulp.task 'styles', ->
@@ -87,7 +81,7 @@ gulp.task 'fonts', ->
 
 gulp.task 'partials', ->
   gulp.src paths.partials
-    .pipe templateCache('templates', {standalone:true, root: '/partials/'} )
+    .pipe templateCache('templates', {standalone:true, root: '/app/'} )
     .pipe rename(extname: '.js')
     .pipe gulpif(argv.compress, uglify())
     .pipe gulpif(argv.compress, rev())

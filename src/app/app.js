@@ -1,7 +1,5 @@
 (function() {
-  var App;
-
-  App = function App() {
+  function App() {
     return [
       'templates', 
       'ui.router', 
@@ -14,6 +12,7 @@
     ];
   }
 
-  angular.module('app', new App);
+  angular
+    .module('app', new App);
 
 })();

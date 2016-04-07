@@ -4,9 +4,10 @@ module.exports = function(config){
     basePath : '../../',
 
     files : [
-      'www/scripts/dependencies.js',
-      'www/scripts/main.js',
-      'www/scripts/templates.js',
+      'www/app/dependencies.js',
+      'www/app/main.js',
+      'www/app/**/*.js',
+      'www/app/templates.js',
       'tests/karma-tests/app/**/*.js'
     ],
 

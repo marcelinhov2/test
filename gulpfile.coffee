@@ -25,7 +25,7 @@ paths =
   images:     'src/assets/images/**/*'
   styles:     'src/styles/**/*.less'
   base_style: 'src/styles/base.less'
-  scripts:    ['src/app/*.js', 'src/app/**/*.js']
+  scripts:    'src/app/**/*.js'
   partials:   'src/app/**/*.html'
 
 folder = if (argv.compress) then 'dist' else 'www'
@@ -45,16 +45,16 @@ gulp.task "concat_bower", ->
     .pipe(concat( 'dependencies.js') )
     .pipe gulpif(argv.compress, uglify())
     .pipe gulpif(argv.compress, rev())
-    .pipe gulp.dest "#{folder}/scripts"
+    .pipe gulp.dest "#{folder}/app"
 
 gulp.task 'scripts', ->
   gulp.src paths.scripts
     .pipe cache('scripts')
     .pipe preprocess context: NODE_ENV: env
     .pipe gulpif(argv.compress, uglify())
-    .pipe concat('main.js')
+    .pipe gulpif(argv.compress, concat('main.js'))
     .pipe gulpif(argv.compress, rev())
-    .pipe gulp.dest "#{folder}/scripts"
+    .pipe gulp.dest "#{folder}/app"
 
 gulp.task 'styles', ->
   gulp.src paths.base_style
@@ -85,17 +85,17 @@ gulp.task 'partials', ->
     .pipe rename(extname: '.js')
     .pipe gulpif(argv.compress, uglify())
     .pipe gulpif(argv.compress, rev())
-    .pipe gulp.dest "#{folder}/scripts"
+    .pipe gulp.dest "#{folder}/app"
 
 gulp.task 'index', ->
   if(argv.compress)
     scripts = [
-      "./#{folder}/scripts/dependencies-*.js"
-      "./#{folder}/scripts/templates-*.js"
-      "./#{folder}/scripts/app-*.js"
+      "./#{folder}/app/dependencies-*.js"
+      "./#{folder}/app/templates-*.js"
+      "./#{folder}/app/app-*.js"
     ]
   else
-    scripts = "./#{folder}/scripts/**/*.js"
+    scripts = "./#{folder}/app/**/*.js"
 
   gulp.src paths.index
     .pipe inject(es.merge(

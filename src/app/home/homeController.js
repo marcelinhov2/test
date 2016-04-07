@@ -3,6 +3,7 @@
   	$scope
   ){
 	function init(){
+		console.log('init homeController')
 		$scope.test = 'home';
 	}
 

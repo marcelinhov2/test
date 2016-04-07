@@ -8,11 +8,21 @@
       })
       .state({
         name: 'App.home',
-        url: '/home',
+        abstract: true,
         views: {
-          main: {
+          'main@App': {
             templateUrl: '/app/home/homeTemplate.html',
             controller: 'homeController'
+          }
+        }
+      })
+      .state({
+        name: 'App.home.index',
+        url: '/home',
+        views: {
+          'home@App.home': {
+            templateUrl: '/app/home/index/homeIndexTemplate.html',
+            controller: 'homeIndexController'
           }
         }
       })
@@ -23,4 +33,4 @@
 
   angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$urlMatcherFactoryProvider', '$httpProvider', '$locationProvider', Routes]);
 
-}).call(this);
+})();

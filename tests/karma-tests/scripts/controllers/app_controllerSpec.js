@@ -8,7 +8,9 @@ describe("App Controller", function () {
     beforeEach(inject(function ($controller, $rootScope) {
         $controllerConstructor = $controller;
         scope = $rootScope.$new();
-        controller = $controllerConstructor('appController', { $scope: scope });
+        controller = $controllerConstructor('appController', { 
+            $scope: scope 
+        });
     }));
 
     it("check if app controller can be instantiated.", function () {

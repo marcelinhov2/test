@@ -18,16 +18,7 @@
     "lodash": "latest",
     "ui-router": "latest",
     "angular-local-storage": "latest",
-    "ui-router-extras": "latest",
-    "bootstrap": "latest",
-    "angular-smart-table": "latest",
-    "ng-dialog": "latest",
-    "angular-input-masks": "latest",
-    "angular-dynamic-locale": "latest",
-    "angular-i18n": "latest",
-    "awesome-bootstrap-checkbox": "latest",
-    "font-awesome": "Font-Awesome#~4.4.0",
-    "angular-notify": "latest"
+    "ui-router-extras": "latest"
   },
   "overrides": {
     "angular-i18n": {

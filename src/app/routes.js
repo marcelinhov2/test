@@ -26,6 +26,16 @@
           }
         }
       })
+      .state({
+        name: 'App.home.test',
+        url: '/test',
+        views: {
+          'home@App.home': {
+            templateUrl: '/app/home/test/homeTestTemplate.html',
+            controller: 'homeTestController'
+          }
+        }
+      })
 
     $urlRouterProvider.otherwise('/home');
     $locationProvider.html5Mode(true);

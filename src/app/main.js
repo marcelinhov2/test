@@ -3,12 +3,7 @@
     return [
       'templates', 
       'ui.router', 
-      'smart-table', 
-      'ngResource', 
-      'ngDialog', 
-      'LocalStorageModule', 
-      'ui.utils.masks', 
-      'cgNotify'
+      'ngResource'
     ];
   }
 

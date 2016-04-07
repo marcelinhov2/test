@@ -5,7 +5,7 @@ PR=node_modules/.bin/protractor
 
 setup:
 	npm install --no-progress
-	@$(BO) install
+	@$(BO) install --allow-root
 
 remove_remote:
 	rm -rf .git

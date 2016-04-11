@@ -1,5 +1,8 @@
 {
-  "name": "angular-kickoff",
+  "name": "new-angular-kickoff",
+  "scripts": {
+    "postinstall": "bower install"
+  },
   "dependencies": {
     "bower": "latest",
     "coffee-script": "latest",
